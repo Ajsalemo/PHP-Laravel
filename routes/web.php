@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('blog.index');
+});
+
+Route::get('blog/post', function () {
+    return view('blog.create');
+});
+
+Route::get('admin', function () {
+    return view('welcome');
+});
+
+Route::get('admin/post/create', function () {
+    return view('welcome');
+});
+
+Route::get('admin/post/edit/{id}', function () {
     return view('welcome');
 });
