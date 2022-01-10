@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
 
 <head>
     <meta charset="utf-8">
@@ -15,10 +15,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    @include('partials.header')
-    <div class="container mx-auto px-4">
-        @yield('content')
+<body class="h-full">
+    <div class="h-full">
+        @include('partials.header')
+        <div class="container mx-auto px-4 flex flex-col">
+            @yield('content')
+        </div>
+        @include('partials.footer')
     </div>
 </body>
+
 </html>

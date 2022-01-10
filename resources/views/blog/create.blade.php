@@ -8,12 +8,12 @@
 </div>
 
 <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:gap-6 my-32">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">Create a blog post.</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                Create a blog post.
+                    Create a blog post.
                 </p>
             </div>
         </div>
@@ -45,25 +45,13 @@
                                     <option>Mexico</option>
                                 </select>
                             </div>
-
-                            <div class="col-span-6">
-                                <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                                <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                                <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                        <div class="pt-4">
+                            <label for="about" class="block text-sm font-medium text-gray-700">
+                                About
+                            </label>
+                            <div class="mt-1">
+                                <textarea id="about" name="about" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What's on your mind..."></textarea>
                             </div>
                         </div>
                     </div>

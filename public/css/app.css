@@ -493,6 +493,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-3 {
   margin-left: 0.75rem;
 }
+.mt-28 {
+  margin-top: 7rem;
+}
 .block {
   display: block;
 }
@@ -526,6 +529,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-4 {
   height: 1rem;
 }
+.min-h-screen {
+  min-height: 100vh;
+}
+.min-h-full {
+  min-height: 100%;
+}
 .w-full {
   width: 100%;
 }
@@ -549,6 +558,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
 }
 .items-start {
   align-items: flex-start;
@@ -697,6 +709,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pl-1 {
   padding-left: 0.25rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .text-center {
   text-align: center;
