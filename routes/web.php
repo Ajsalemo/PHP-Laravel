@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('blog.index');
-});
+})->name('blog.index');
 
 Route::get('blog/post', function () {
     return view('blog.create');
-});
+})->name('blog.create');
 
 Route::get('admin', function () {
-    return view('welcome');
-});
+    return view('blog.index');
+})->name('admin.index');
 
 Route::get('admin/post/create', function () {
-    return view('welcome');
-});
+    return view('blog.index');
+})->name('admin.create');
 
 Route::get('admin/post/edit/{id}', function () {
-    return view('welcome');
-});
+    return view('blog.index');
+})->name('admin.edit');
