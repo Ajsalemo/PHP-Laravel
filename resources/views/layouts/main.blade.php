@@ -9,16 +9,14 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- TailwindCSS output -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="min-h-full">
-    <div class="min-h-full flex flex-col">
+<body class="h-full">
+    <div class="h-full flex flex-col">
         @include('partials.header')
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 h-full">
             @yield('content')
         </div>
         @include('partials.footer')
