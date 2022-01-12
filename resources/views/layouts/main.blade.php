@@ -15,7 +15,6 @@
 
 <body class="h-full">
     <div class="h-full flex flex-col">
-        @include('partials.header')
         <div class="container mx-auto px-4 h-full">
             @yield('content')
         </div>

@@ -17,18 +17,31 @@ Route::get('/', function () {
     return view('blog.index');
 })->name('blog.index');
 
-Route::get('blog/post', function () {
-    return view('blog.create');
-})->name('blog.create');
+Route::group(['prefix' => 'blog'], function() {
+    Route::get('post/view/{id}', function () {
+        return view('admin.index');
+    })->name('blog.view');
+    
+    Route::get('post/get', function () {
+        return view('admin.index');
+    })->name('blog.dashboard');
+});
 
-Route::get('admin', function () {
-    return view('blog.index');
-})->name('admin.index');
 
-Route::get('admin/post/create', function () {
-    return view('blog.index');
-})->name('admin.create');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('', function () {
+        return view('admin.index');
+    })->name('admin.index');
 
-Route::get('admin/post/edit/{id}', function () {
-    return view('blog.index');
-})->name('admin.edit');
+    Route::get('newpost', function () {
+        return view('admin.newpost');
+    })->name('admin.newpost');
+
+    Route::post('post/create', function () {
+        return "This worked";
+    })->name('admin.create');
+
+    Route::get('post/edit/{id}', function () {
+        return view('blog.index');
+    })->name('admin.edit');
+});

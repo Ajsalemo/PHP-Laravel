@@ -1,6 +1,7 @@
 @extends("layouts.main")
 
 @section('content')
+@include('partials.header')
 <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
         <div class="border-t border-gray-200"></div>
@@ -18,7 +19,7 @@
             </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form action="{{ route('admin.create' )}}" method="POST">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
