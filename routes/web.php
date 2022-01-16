@@ -18,8 +18,8 @@ Route::get('/', function () {
 })->name('blog.index');
 
 Route::group(['prefix' => 'blog'], function() {
-    Route::get('post/view/{id}', function () {
-        return view('admin.index');
+    Route::get('post/view/{id}', function ($id) {
+        return view('blog.viewpost');
     })->name('blog.view');
     
     Route::get('post/get', function () {
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
         return "This worked";
     })->name('admin.create');
 
-    Route::get('post/edit/{id}', function () {
+    Route::get('post/edit/{id}', function ($id) {
         return view('blog.index');
     })->name('admin.edit');
 });
