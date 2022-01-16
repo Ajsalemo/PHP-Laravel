@@ -23,8 +23,8 @@ Route::group(['prefix' => 'blog'], function() {
     })->name('blog.view');
     
     Route::get('post/get', function () {
-        return view('admin.index');
-    })->name('blog.dashboard');
+        return view('blog.posts');
+    })->name('blog.posts');
 });
 
 
