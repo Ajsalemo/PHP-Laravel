@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,8 +78,8 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.newpost');
     })->name('admin.newpost');
 
-    Route::post('post/create', function () {
-        return "This worked";
+    Route::post('post/create', function (Request $request) {
+        return redirect()->back();
     })->name('admin.create');
 
     Route::get('post/edit/{id}', function ($id) {
