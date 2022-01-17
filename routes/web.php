@@ -17,13 +17,15 @@ Route::get('/', function () {
     return view('blog.index');
 })->name('blog.index');
 
-Route::group(['prefix' => 'blog'], function() {
+Route::group(['prefix' => 'blog'], function () {
     Route::get('post/view/{id}', function ($id) {
         // This is mock data for the time being
         if ($id == 1) {
             $postDetail = [
                 'id' => 1,
                 'title' => 'This is a fake title',
+                'firstname' => 'Some',
+                'lastname' => 'User',
                 'content' => 'Lorem Ipsum is simply dummy text of the printing and
                 typesetting industry. Lorem Ipsum is simply dummy text of the printing and
                 typesetting industry. Lorem Ipsum is simply dummy text of the printing and
@@ -35,11 +37,14 @@ Route::group(['prefix' => 'blog'], function() {
             return view('blog.view');
         }
     })->name('blog.view');
-    
+
     Route::get('post/get', function () {
+        // This is mock data for the time being
         $post = [
             'id' => 1,
             'title' => 'This is a fake title',
+            'firstname' => 'Some',
+            'lastname' => 'User',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and
             typesetting industry. Lorem Ipsum is simply dummy text of the printing and
             typesetting industry. Lorem Ipsum is simply dummy text of the printing and
@@ -53,10 +58,22 @@ Route::group(['prefix' => 'blog'], function() {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('', function () {
-        return view('admin.index');
+        $adminPost = [
+            'id' => 1,
+            'title' => 'This is a fake title',
+            'firstname' => 'Some',
+            'lastname' => 'User',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.'
+        ];
+
+        return view('admin.index', ['post' => $adminPost]);
     })->name('admin.index');
 
-    Route::get('newpost', function () {
+    Route::get('post/new', function () {
         return view('admin.newpost');
     })->name('admin.newpost');
 
@@ -65,6 +82,18 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('admin.create');
 
     Route::get('post/edit/{id}', function ($id) {
-        return view('blog.index');
+        $adminEditPost = [
+            'id' => 1,
+            'title' => 'This is a fake title',
+            'firstname' => 'Some',
+            'lastname' => 'User',
+            'content' => 'Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.'
+        ];
+
+        return view('admin.edit', ['adminEditPost' => $adminEditPost]);
     })->name('admin.edit');
 });
