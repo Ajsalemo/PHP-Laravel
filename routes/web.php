@@ -19,11 +19,25 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'blog'], function() {
     Route::get('post/view/{id}', function ($id) {
-        return view('blog.viewpost');
+        // This is mock data for the time being
+        if ($id == 1) {
+            $postDetail = [
+                'id' => 1,
+                'title' => 'This is a fake title',
+                'content' => 'Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.'
+            ];
+            return view('blog.view', ['post' => $postDetail]);
+        } else {
+            return view('blog.view');
+        }
     })->name('blog.view');
     
     Route::get('post/get', function () {
-        $fakePost = [
+        $post = [
             'id' => 1,
             'title' => 'This is a fake title',
             'content' => 'Lorem Ipsum is simply dummy text of the printing and
@@ -32,7 +46,7 @@ Route::group(['prefix' => 'blog'], function() {
             typesetting industry. Lorem Ipsum is simply dummy text of the printing and
             typesetting industry.'
         ];
-        return view('blog.posts', ['post' => $fakePost]);
+        return view('blog.posts', ['post' => $post]);
     })->name('blog.posts');
 });
 
