@@ -78,11 +78,11 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.newpost');
     })->name('admin.newpost');
 
-    Route::post('post/create', function (Request $request) {
-        return redirect()->back();
+    Route::post('post/create', function () {
+        return redirect()->back()->with('info', 'Edit successful.');
     })->name('admin.create');
 
-    Route::get('post/edit/{id}', function ($id) {
+    Route::get('post/edit/{id}', function () {
         $adminEditPost = [
             'id' => 1,
             'title' => 'This is a fake title',
@@ -94,7 +94,6 @@ Route::group(['prefix' => 'admin'], function () {
             typesetting industry. Lorem Ipsum is simply dummy text of the printing and
             typesetting industry.'
         ];
-
         return view('admin.edit', ['adminEditPost' => $adminEditPost]);
     })->name('admin.edit');
 });
