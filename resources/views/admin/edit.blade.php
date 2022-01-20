@@ -20,9 +20,9 @@
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
             <!-- If the session key exists, display the information -->
-            @if(Session::get('info'))
+            @if(Session::get('success'))
             <div class="bg-green-300 border border-green-300 px-4 py-3 relative shadow overflow-hidden sm:rounded-md" role="alert">
-                <span class="block sm:inline">{{ Session::get('info') }}</span>
+                <span class="block sm:inline">{{ Session::get('success') }}</span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
                     <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <title>Close</title>
@@ -31,7 +31,7 @@
                 </span>
             </div>
             @endif
-            <form action="{{ route('admin.create' )}}" method="POST">
+            <form action="{{ route('admin.editsubmit' )}}" method="POST">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">

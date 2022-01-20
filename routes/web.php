@@ -78,9 +78,13 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.newpost');
     })->name('admin.newpost');
 
-    Route::post('post/create', function () {
-        return redirect()->back()->with('info', 'Edit successful.');
+    Route::post('post/new/submit', function () {
+        return redirect('admin')->with('success', 'Post successful.');
     })->name('admin.create');
+
+    Route::post('post/edit/submit', function () {
+        return redirect()->back()->with('success', 'Edit successful.');
+    })->name('admin.editsubmit');
 
     Route::get('post/edit/{id}', function () {
         $adminEditPost = [
