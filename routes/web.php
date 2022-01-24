@@ -87,7 +87,7 @@ Route::group(["prefix" => "admin"], function () {
             'title' => 'required|min:1',
             'content' => 'required|min:1'
         ]);
-        // If validation fails, redirect back to the same page and display an error through Session flashes
+        // If validation fails redirect back to the same page and display an error through Session flashes
         if ($validation->fails()) {
             return redirect()->back()->withErrors($validation);
         }
