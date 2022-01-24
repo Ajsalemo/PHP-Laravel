@@ -105,7 +105,7 @@ Route::group(["prefix" => "admin"], function () {
         if ($validation->fails()) {
             return redirect()->back()->withErrors($validation);
         }
-        return redirect()->back()->with("success", "Edit successful.");
+        return redirect()->back()->with("success", "Edit successful");
     })->name("admin.editsubmit");
 
     Route::get("post/edit/{id}", function () {
