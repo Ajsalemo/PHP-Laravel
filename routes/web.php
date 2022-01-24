@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Factory;
 use Illuminate\Http\Request;
 
 /*
@@ -78,7 +79,18 @@ Route::group(["prefix" => "admin"], function () {
         return view("admin.newpost");
     })->name("admin.newpost");
 
-    Route::post("post/new/submit", function () {
+    Route::post("post/new/submit", function (Request $request, Factory $validator) {
+        // Using the built-in Laravel validator to make all these fields required with a min character length of 1
+        $validation = $validator->make($request->all(), [
+            'first-name' => 'required|min:1',
+            'last-name' => 'required|min:1',
+            'title' => 'required|min:1',
+            'content' => 'required|min:1'
+        ]);
+        // If validation fails, redirect back to the same page and display an error through Session flashes
+        if ($validation->fails()) {
+            return redirect()->back()->withErrors($validation);
+        }
         return redirect("admin")->with("success", "Post successful.");
     })->name("admin.create");
 

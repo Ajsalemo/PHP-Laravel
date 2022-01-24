@@ -7,7 +7,7 @@
         <div class="border-t border-gray-200"></div>
     </div>
 </div>
-
+@include('partials.validation')
 <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -41,7 +41,7 @@
                                 About
                             </label>
                             <div class="mt-1">
-                                <textarea id="about" name="about" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What's on your mind..."></textarea>
+                                <textarea id="about" name="content" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What's on your mind..."></textarea>
                             </div>
                         </div>
                     </div>
