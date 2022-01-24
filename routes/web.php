@@ -94,7 +94,17 @@ Route::group(["prefix" => "admin"], function () {
         return redirect("admin")->with("success", "Post successful.");
     })->name("admin.create");
 
-    Route::post("post/edit/submit", function () {
+    Route::post("post/edit/submit", function (Request $request, Factory $validator) {
+        $validation = $validator->make($request->all(), [
+            'first-name' => 'required|min:1',
+            'last-name' => 'required|min:1',
+            'title' => 'required|min:1',
+            'content' => 'required|min:1'
+        ]);
+        // If validation fails, redirect back to the same page and display an error through Session flashes
+        if ($validation->fails()) {
+            return redirect()->back()->withErrors($validation);
+        }
         return redirect()->back()->with("success", "Edit successful.");
     })->name("admin.editsubmit");
 

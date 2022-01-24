@@ -1,7 +1,7 @@
 @extends("layouts.main")
 
-@section('content')
-@include('partials.header')
+@section("content")
+@include("partials.header")
 <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
         <div class="border-t border-gray-200"></div>
@@ -19,22 +19,23 @@
             </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
-            @include('partials.session')
-            <form action="{{ route('admin.editsubmit' )}}" method="POST">
+            @include("partials.session")
+            @include("partials.validation")
+            <form action="{{ route("admin.editsubmit" )}}" method="POST">
                 <div class="shadow overflow-hidden sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" value="{{ $adminEditPost['firstname'] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" value="{{ $adminEditPost["firstname"] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" value="{{ $adminEditPost['lastname'] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" value="{{ $adminEditPost["lastname"] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="title" class="block text-sm font-medium text-gray-700">Post Title</label>
-                                <input type="text" name="title" id="title" autocomplete="given-name" value="{{ $adminEditPost['title'] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="title" id="title" autocomplete="given-name" value="{{ $adminEditPost["title"] }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>
                         <div class="pt-4">
@@ -42,7 +43,7 @@
                                 About
                             </label>
                             <div class="mt-1">
-                                <textarea id="about" name="about" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What's on your mind...">{{ $adminEditPost['content'] }}</textarea>
+                                <textarea id="about" name="content" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What"s on your mind...">{{ $adminEditPost["content"] }}</textarea>
                             </div>
                         </div>
                     </div>
