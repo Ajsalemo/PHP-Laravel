@@ -21,8 +21,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    // If environment is production then serve assets over HTTPS
     public function boot()
     {
-        //
+        if(config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
     }
 }
