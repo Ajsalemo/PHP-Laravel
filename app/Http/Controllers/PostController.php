@@ -11,7 +11,6 @@ class PostController extends Controller
     {
         $postModel = new Post();
         $posts = $postModel->getAllPosts();
-        print_r($posts);
         return view("blog.posts",  ["posts" => $posts]);
     }
 }

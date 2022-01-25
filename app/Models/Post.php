@@ -16,7 +16,6 @@ class Post extends Model
     {
         // Return all posts
         $posts = DB::select("SELECT * FROM posts");
-        print_r($posts);
         return $posts;
     }
 
