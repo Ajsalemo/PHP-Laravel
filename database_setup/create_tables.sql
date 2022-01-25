@@ -1,0 +1,7 @@
+CREATE TABLE posts(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    firstname VARCHAR(455) NOT NULL,
+    lastname VARCHAR(455) NOT NULL,
+    title VARCHAR(455) NOT NULL,
+    content TEXT NOT NULL
+);
