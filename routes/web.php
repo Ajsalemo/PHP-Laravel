@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Factory;
 use Illuminate\Http\Request;
 
+// Controllers
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,21 +43,7 @@ Route::group(["prefix" => "blog"], function () {
         }
     })->name("blog.view");
 
-    Route::get("post/get", function () {
-        // This is mock data for the time being
-        $post = [
-            "id" => 1,
-            "title" => "This is a fake title",
-            "firstname" => "Some",
-            "lastname" => "User",
-            "content" => "Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry."
-        ];
-        return view("blog.posts", ["post" => $post]);
-    })->name("blog.posts");
+    Route::get("post/get", [PostController::class, "allPosts"])->name("blog.posts");
 });
 
 

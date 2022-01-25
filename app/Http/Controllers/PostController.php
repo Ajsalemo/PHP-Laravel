@@ -1,26 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Http\Controllers;
 
-class Post
+use Illuminate\Http\Request;
+use App\Models\Post;
+
+class PostController extends Controller
 {
-    public function getAllPosts()
+    public function allPosts()
     {
-        // return all posts
-    }
-
-    public function getPostById($id)
-    {
-        // return post by ID
-    }
-
-    public function newPost($id)
-    {
-        // create a new post
-    }
-
-    public function editPostById($id)
-    {
-        // edit a post by ID
+        $postModel = new Post();
+        $posts = $postModel->getAllPosts();
+        print_r($posts);
+        return view("blog.posts",  ["posts" => $posts]);
     }
 }
