@@ -12,16 +12,18 @@ class Post extends Model
 
     protected $table = "posts";
 
-    public function getAllPosts()
+    public function allPosts()
     {
         // Return all posts
         $posts = DB::select("SELECT * FROM posts");
         return $posts;
     }
 
-    public function getPostById($id)
+    public function postById($id)
     {
-        // return post by ID
+        // Return post by ID
+        $posts = DB::select("SELECT * FROM posts WHERE id = ?", array($id));
+        return $posts;
     }
 
     public function newPost($id)
@@ -29,7 +31,7 @@ class Post extends Model
         // create a new post
     }
 
-    public function editPostById($id)
+    public function editPost($id)
     {
         // edit a post by ID
     }

@@ -5,7 +5,8 @@ use Illuminate\Validation\Factory;
 use Illuminate\Http\Request;
 
 // Controllers
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,46 +24,14 @@ Route::get("/", function () {
 })->name("blog.index");
 
 Route::group(["prefix" => "blog"], function () {
-    Route::get("post/view/{id}", function ($id) {
-        // This is mock data for the time being
-        if ($id == 1) {
-            $postDetail = [
-                "id" => 1,
-                "title" => "This is a fake title",
-                "firstname" => "Some",
-                "lastname" => "User",
-                "content" => "Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry."
-            ];
-            return view("blog.view", ["post" => $postDetail]);
-        } else {
-            return view("blog.view");
-        }
-    })->name("blog.view");
+    Route::get("post/view/{id}", [BlogController::class, "getBlogPagePostById"])->name("blog.view");
 
-    Route::get("post/get", [PostController::class, "allPosts"])->name("blog.posts");
+    Route::get("post/get", [BlogController::class, "getAllBlogPagePosts"])->name("blog.posts");
 });
 
 
 Route::group(["prefix" => "admin"], function () {
-    Route::get("", function () {
-        $adminPost = [
-            "id" => 1,
-            "title" => "This is a fake title",
-            "firstname" => "Some",
-            "lastname" => "User",
-            "content" => "Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry."
-        ];
-
-        return view("admin.index", ["post" => $adminPost]);
-    })->name("admin.index");
+    Route::get("",  [AdminController::class, "getAllAdminPagePosts"])->name("admin.index");
 
     Route::get("post/new", function () {
         return view("admin.newpost");
