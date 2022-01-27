@@ -24,9 +24,8 @@ Route::get("/", function () {
 })->name("blog.index");
 
 Route::group(["prefix" => "blog"], function () {
-    Route::get("post/view/{id}", [BlogController::class, "getBlogPagePostById"])->name("blog.view");
-
     Route::get("post/get", [BlogController::class, "getAllBlogPagePosts"])->name("blog.posts");
+    Route::get("post/view/{id}", [BlogController::class, "getBlogPagePostById"])->name("blog.view");
 });
 
 
@@ -66,18 +65,5 @@ Route::group(["prefix" => "admin"], function () {
         return redirect()->back()->with("success", "Edit successful");
     })->name("admin.editsubmit");
 
-    Route::get("post/edit/{id}", function () {
-        $adminEditPost = [
-            "id" => 1,
-            "title" => "This is a fake title",
-            "firstname" => "Some",
-            "lastname" => "User",
-            "content" => "Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry."
-        ];
-        return view("admin.edit", ["adminEditPost" => $adminEditPost]);
-    })->name("admin.edit");
+    Route::get("post/edit/{id}", [AdminController::class, "getAdminPagePostById"])->name("admin.edit");
 });

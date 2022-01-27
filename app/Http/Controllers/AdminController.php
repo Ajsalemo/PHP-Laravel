@@ -17,6 +17,6 @@ class AdminController extends Controller
     {
         $postModel = new Post();
         $posts = $postModel->postById($id);
-        return view("blog.view",  ["posts" => $posts]);
+        return view("admin.edit", ["adminEditPost" => $posts]);
     }
 }
