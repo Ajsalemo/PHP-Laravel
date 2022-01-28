@@ -15,20 +15,29 @@ class Post extends Model
     public function allPosts()
     {
         // Return all posts
-        $posts = DB::select("SELECT * FROM posts");
+        $posts = DB::table($this->table)->get();
         return $posts;
     }
 
     public function postById($id)
     {
         // Return post by ID
-        $posts = DB::select("SELECT * FROM posts WHERE id = ?", array($id));
+        $posts = DB::table($this->table)->whereIn("id", array($id))->get();
         return $posts;
     }
 
-    public function newPost($id)
+    public function newPost($request)
     {
-        // create a new post
+        // Create a new post
+        $posts = DB::table($this->table)->insert(
+            array(
+                "firstname" => $request["firstname"],
+                "lastname" => $request["lastname"],
+                "title" => $request["title"],
+                "content" => $request["content"]
+            )
+        );
+        return $posts;
     }
 
     public function editPost($id)
