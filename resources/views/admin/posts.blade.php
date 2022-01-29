@@ -1,5 +1,5 @@
 @foreach($posts as $post)
-<div>
+<div class="md:p-4 mt-4 border-4 border-dashed border-gray-200 rounded-lg">
     <span class="
             bg-primary
             rounded
