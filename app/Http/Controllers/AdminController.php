@@ -31,35 +31,30 @@ class AdminController extends Controller
     {
         $postModel = new Post();
 
-        // Using the built-in Laravel validator to make all these fields required with a min character length of 1
-        $validation = $validator->make($request->all(), [
+        // Using the built-in Laravel validator thats extended via Controller to make all these fields required with a min character length of 1
+        $this->validate($request, [
             'firstname' => 'required|min:1',
             'lastname' => 'required|min:1',
             'title' => 'required|min:1',
             'content' => 'required|min:1'
         ]);
         // If validation fails redirect back to the same page and display an error through Session flashes
-        if ($validation->fails()) {
-            return redirect()->back()->withErrors($validation);
-        } else {
-            $postModel->newPost($request);
-            return redirect("admin")->with("success", "Post successful.");
-        }
+        // $this-validate automatically populates the session with failing error messages 
+        $postModel->newPost($request);
+        return redirect("admin")->with("success", "Post successful.");
     }
 
     public function editPostOnAdminPage(Request $request, Factory $validator)
     {
-        $validation = $validator->make($request->all(), [
+        // Using the built-in Laravel validator thats extended via Controller to make all these fields required with a min character length of 1
+        $this->validate($request, [
             'firstname' => 'required|min:1',
             'lastname' => 'required|min:1',
             'title' => 'required|min:1',
             'content' => 'required|min:1'
         ]);
         // If validation fails redirect back to the same page and display an error through Session flashes
-        if ($validation->fails()) {
-            return redirect()->back()->withErrors($validation);
-        } else {
-            return redirect()->back()->with("success", "Edit successful");
-        }
+        // $this-validate automatically populates the session with failing error messages 
+        return redirect()->back()->with("success", "Edit successful");
     }
 }
