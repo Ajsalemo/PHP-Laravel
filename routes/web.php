@@ -28,29 +28,10 @@ Route::group(["prefix" => "blog"], function () {
     Route::get("post/view/{id}", [BlogController::class, "getBlogPagePostById"])->name("blog.view");
 });
 
-
 Route::group(["prefix" => "admin"], function () {
     Route::get("",  [AdminController::class, "getAllAdminPagePosts"])->name("admin.index");
-
-    Route::get("post/new", function () {
-        return view("admin.newpost");
-    })->name("admin.newpost");
-
-    Route::post("post/new/submit", [AdminController::class, "createNewPostOnAdminPage"])->name("admin.create");
-
-    Route::post("post/edit/submit", function (Request $request, Factory $validator) {
-        $validation = $validator->make($request->all(), [
-            'firstname' => 'required|min:1',
-            'lastname' => 'required|min:1',
-            'title' => 'required|min:1',
-            'content' => 'required|min:1'
-        ]);
-        // If validation fails redirect back to the same page and display an error through Session flashes
-        if ($validation->fails()) {
-            return redirect()->back()->withErrors($validation);
-        }
-        return redirect()->back()->with("success", "Edit successful");
-    })->name("admin.editsubmit");
-
+    Route::get("post/new", [AdminController::class, "showNewPostFormOnAdminPage"])->name("admin.newpost");
     Route::get("post/edit/{id}", [AdminController::class, "getAdminPagePostById"])->name("admin.edit");
+    Route::post("post/new/submit", [AdminController::class, "createNewPostOnAdminPage"])->name("admin.create");
+    Route::post("post/edit/submit",  [AdminController::class, "editPostOnAdminPage"])->name("admin.editsubmit");
 });
