@@ -40,8 +40,17 @@ class Post extends Model
         return $posts;
     }
 
-    public function editPost($id)
+    public function editPost($request, $id)
     {
         // edit a post by ID
+        $posts = DB::table($this->table)->where("id", $id)->update(
+            array(
+                "firstname" => $request["firstname"],
+                "lastname" => $request["lastname"],
+                "title" => $request["title"],
+                "content" => $request["content"]
+            )
+        );
+        return $posts;
     }
 }

@@ -33,5 +33,5 @@ Route::group(["prefix" => "admin"], function () {
     Route::get("post/new", [AdminController::class, "showNewPostFormOnAdminPage"])->name("admin.newpost");
     Route::get("post/edit/{id}", [AdminController::class, "getAdminPagePostById"])->name("admin.edit");
     Route::post("post/new/submit", [AdminController::class, "createNewPostOnAdminPage"])->name("admin.create");
-    Route::post("post/edit/submit",  [AdminController::class, "editPostOnAdminPage"])->name("admin.editsubmit");
+    Route::post("post/edit/submit/{id}", [AdminController::class, "editPostOnAdminPage"])->name("admin.editsubmit");
 });
