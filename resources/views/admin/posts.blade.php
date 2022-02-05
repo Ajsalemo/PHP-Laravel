@@ -1,5 +1,7 @@
 @foreach($posts as $post)
 <div class="md:p-4 mt-4 mb-8 border-4 border-dashed border-gray-200 rounded-lg">
+    <!-- If the URL requests is /admin, show the 'Delete Post' button -->
+    @if(Request::is('admin'))
     <form action="{{ route('admin.deletesubmit', ['id' => $post->id] )}}" method="POST" class="flex justify-end">
         {{ csrf_field() }}
         <button type="submit">
@@ -9,6 +11,7 @@
             </svg>
         </button>
     </form>
+    @endif
     <span class="
             bg-primary
             rounded
@@ -22,7 +25,7 @@
             text-white
             mb-5
         ">
-        Dec 22, 2023
+        {{ $post->created_at }}
     </span>
     <h3>
         <a href="#" class="
