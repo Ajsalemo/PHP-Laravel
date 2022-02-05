@@ -42,7 +42,7 @@ class Post extends Model
 
     public function editPost($request, $id)
     {
-        // edit a post by ID
+        // Edit a post by ID
         $posts = DB::table($this->table)->where("id", $id)->update(
             array(
                 "firstname" => $request["firstname"],
@@ -51,6 +51,13 @@ class Post extends Model
                 "content" => $request["content"]
             )
         );
+        return $posts;
+    }
+
+    public function deletePost($id)
+    {
+        // edit a post by ID
+        $posts = DB::table($this->table)->where("id", $id)->delete();
         return $posts;
     }
 }
