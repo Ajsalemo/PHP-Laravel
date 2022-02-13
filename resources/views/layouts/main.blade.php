@@ -18,6 +18,7 @@
         @yield('content')
     </div>
     @include('partials.footer')
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>
