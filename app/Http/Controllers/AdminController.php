@@ -57,4 +57,16 @@ class AdminController extends Controller
         $postModel->editPost($request, $id);
         return redirect()->back()->with("success", "Edit successful");
     }
+
+    public function deletePostOnAdminPage($id)
+    {
+        // Delete a specified post
+        $postModel = new Post();
+        if ($id && $id > 0) {
+            $postModel->deletePost($id);
+            return redirect()->back()->with("success", "Post deleted");
+        } else {
+            return redirect()->back()->with("error", "Invalid Post to delete");
+        }
+    }
 }

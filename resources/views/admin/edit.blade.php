@@ -43,7 +43,7 @@
                                 About
                             </label>
                             <div class="mt-1">
-                                <textarea id="about" name="content" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What"s on your mind...">{{ $adminEditPost[0]->content }}</textarea>
+                                <textarea id="about" name="content" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="What" s on your mind...">{{ $adminEditPost[0]->content }}</textarea>
                             </div>
                         </div>
                     </div>
