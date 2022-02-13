@@ -33,7 +33,7 @@ jobs:
 
       # Zip artifacts to speed things up
       - name: Zip artifact for deployment
-        run: zip release.zip ./??* -qr
+        run: zip release.zip ./* -qr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -62,4 +62,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_30D9702814244EA0BE8EC42411532C07 }}
           package: release.zip
+
 
