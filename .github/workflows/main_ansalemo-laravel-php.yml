@@ -16,6 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+        # Use yarn to run 'yarn run production' for Laravel Mix --production
+      - name: Run Laravel Mix
+        run: |
+          yarn run production
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
