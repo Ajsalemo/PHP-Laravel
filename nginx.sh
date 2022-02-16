@@ -21,7 +21,7 @@ export NGINX_PORT=8080
 
 if [  -n "$PHP_ORIGIN" ] && [ "$PHP_ORIGIN" = "php-fpm" ]; then
    export NGINX_DOCUMENT_ROOT='/home/site/wwwroot'
-   service nginx start
+   service nginx reload
 else
    export APACHE_DOCUMENT_ROOT='/home/site/wwwroot'
 fi
