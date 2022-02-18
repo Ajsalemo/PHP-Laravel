@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
 @include('partials.header')
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -11,12 +10,12 @@
                 For Blog Administrators
             </p>
         </div>
-        <form class="mt-8 space-y-6" action="#" method="POST" action="{{ route('register') }}">
+        <form class="mt-8 space-y-6" method="POST" action="{{ route('register') }}">
             <input type="hidden" name="remember" value="true">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="name" class="text-sm">{{ __('Name') }}</label>
-                    <input id="name" name="name" type="name" autocomplete="name" value="{{ old('name') }}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+                    <input id="name" name="name" type="name" autocomplete="name" value="{{ old('name') }}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name" autofocus>
                     @error('name')
                     <span class="text-red-300" role="alert">
                         <strong>{{ $message }}</strong>
@@ -25,7 +24,7 @@
                 </div>
                 <div>
                     <label for="email" class="text-sm">{{ __('Email') }}</label>
-                    <input id="email" email="email" type="email" autocomplete="email" value="{{ old('email') }}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="name@email.com">
+                    <input id="email" name="email" type="email" autocomplete="email" value="{{ old('email') }}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="name@email.com" autofocus>
                     @error('email')
                     <span class="text-red-300" role="alert">
                         <strong>{{ $message }}</strong>
@@ -34,7 +33,7 @@
                 </div>
                 <div>
                     <label for="password" class="text-sm">{{ __('Password') }}</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" autofocus>
                     @error('password')
                     <span class="text-red-300" role="alert">
                         <strong>{{ $message }}</strong>
@@ -43,7 +42,7 @@
                 </div>
                 <div>
                     <label for="password-confirm" class="text-sm">{{ __('Confirm Password') }}</label>
-                    <input id="password-confirm" name="password_cofirmation" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password">
+                    <input id="password-confirm" name="password_confirmation" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password" autofocus>
                     @error('password-confirm')
                     <span class="text-red-300" role="alert">
                         <strong>{{ $message }}</strong>
