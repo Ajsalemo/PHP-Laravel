@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\Factory;
-use Illuminate\Http\Request;
 
 // Controllers
 use App\Http\Controllers\BlogController;
@@ -36,3 +34,7 @@ Route::group(["prefix" => "admin"], function () {
     Route::post("post/edit/submit/{id}", [AdminController::class, "editPostOnAdminPage"])->name("admin.editsubmit");
     Route::post("post/delete/submit/{id}", [AdminController::class, "deletePostOnAdminPage"])->name("admin.deletesubmit");
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
