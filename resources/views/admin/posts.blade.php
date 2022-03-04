@@ -25,10 +25,10 @@
             text-white
             mb-5
         ">
+            <!-- For now, just convert the time returned from the created_at column per row for each post from UTC to EST (UTC -5) -->
             @php
                 $originalDateTime = $post->created_at;
-                $newDateTime = str_replace('-"', "/", $originalDateTime);  
-                $newDate = date("m/d/Y g:i a", strtotime($newDateTime));
+                $newDate = date("m/d/Y g:i A", strtotime("-5 hours", strtotime($originalDateTime))) . " EST";
             @endphp
             {{ $newDate }}
     </span>
