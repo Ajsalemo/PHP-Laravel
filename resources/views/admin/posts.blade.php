@@ -25,7 +25,12 @@
             text-white
             mb-5
         ">
-        {{ $post->created_at }}
+            @php
+                $originalDateTime = $post->created_at;
+                $newDateTime = str_replace('-"', "/", $originalDateTime);  
+                $newDate = date("m/d/Y g:i a", strtotime($newDateTime));
+            @endphp
+            {{ $newDate }}
     </span>
     <h3>
         <a href="#" class="
