@@ -25,7 +25,12 @@
             text-white
             mb-5
         ">
-        {{ $post->created_at }}
+            <!-- For now, just convert the time returned from the created_at column per row for each post from UTC to EST (UTC -5) -->
+            @php
+                $originalDateTime = $post->created_at;
+                $newDate = date("m/d/Y g:i A", strtotime("-5 hours", strtotime($originalDateTime))) . " EST";
+            @endphp
+            {{ $newDate }}
     </span>
     <h3>
         <a href="#" class="
